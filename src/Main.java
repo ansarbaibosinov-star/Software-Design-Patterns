@@ -1,3 +1,39 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        Passenger passenger =
+                new Passenger("Arman", "K123");
+
+        Flight flight =
+                new Flight("KC101", "Almaty", 200);
+
+        FlightRoute route =
+                new FlightRoute("Astana", "Almaty");
+
+
+        Booking booking = new Booking.Builder(
+                "B001",
+                passenger,
+                flight,
+                "Economy"
+        )
+                .baggage(20)
+                .withMeal()
+                .seat("12A")
+                .route(route)
+                .build();
+
+
+        booking.printInfo();
+    }
+}
+
+
+
+
+
+
 //public class Main {
 //
 //    public static void main(String[] args) {
@@ -19,29 +55,28 @@
 //}
 
 
-public class Main {
-
-    public static void main(String[] args) {
-
-        FlightRoute route =
-                new FlightRoute("Astana", "Almaty");
-        Passenger passenger = new Passenger("Arman","k123");
-        Flight flight = new Flight("KC101","Almaty",200);
-
-        Booking booking = new Booking(
-                "B001",
-                passenger,
-                flight,
-                "Economy",
-                20,
-                true,
-                false,
-                false,
-                "12A",
-                route
-        );
-
-        booking.printInfo();
-
-    }
-}
+//public class Main {
+//
+//    public static void main(String[] args) {
+//
+//        FlightRoute route = new FlightRoute("Astana", "Almaty");
+//        Passenger passenger = new Passenger("Arman","k123");
+//        Flight flight = new Flight("KC101","Almaty",200);
+//
+//        Booking booking = new Booking(
+//                "B001",
+//                passenger,
+//                flight,
+//                "Economy",
+//                20,
+//                true,
+//                false,
+//                false,
+//                "12A",
+//                route
+//        );
+//
+//        booking.printInfo();
+//
+//    }
+//}
