@@ -12,7 +12,7 @@ public class BookingPresets {
                 flight,
                 "Economy"
         )
-                .baggage(10)
+                .baggage(30)
                 .build();
     }
 

@@ -12,43 +12,89 @@ public class Main {
                 new FlightRoute("Astana", "Almaty");
 
 
-        Booking basic =
-                BookingPresets.basic(
+        Booking booking =
+                BookingPresets.business(
                         "B001",
                         passenger,
-                        flight
-                );
-
-
-        Booking business =
-                BookingPresets.business(
-                        "B002",
-                        passenger,
                         flight,
                         route
                 );
 
 
-        Booking premium =
-                BookingPresets.premium(
-                        "B003",
-                        passenger,
-                        flight,
-                        route
-                );
+        BookingService service =
+                new BookingServiceImpl();
 
 
-        basic.printInfo();
+        Booking createdBooking =
+                service.createBooking(booking);
 
-        System.out.println();
 
-        business.printInfo();
+        double price =
+                service.calculatePrice(createdBooking);
 
-        System.out.println();
 
-        premium.printInfo();
+        createdBooking.printInfo();
+
+        System.out.println(
+                "Price: $" + price
+        );
+
+
+        service.confirmBooking(createdBooking);
     }
 }
+
+//public class Main {
+//
+//    public static void main(String[] args) {
+//
+//        Passenger passenger =
+//                new Passenger("Arman", "K123");
+//
+//        Flight flight =
+//                new Flight("KC101", "Almaty", 200);
+//
+//        FlightRoute route =
+//                new FlightRoute("Astana", "Almaty");
+//
+//
+//        Booking basic =
+//                BookingPresets.basic(
+//                        "B001",
+//                        passenger,
+//                        flight
+//                );
+//
+//
+//        Booking business =
+//                BookingPresets.business(
+//                        "B002",
+//                        passenger,
+//                        flight,
+//                        route
+//                );
+//
+//
+//        Booking premium =
+//                BookingPresets.premium(
+//                        "B003",
+//                        passenger,
+//                        flight,
+//                        route
+//                );
+//
+//
+//        basic.printInfo();
+//
+//        System.out.println();
+//
+//        business.printInfo();
+//
+//        System.out.println();
+//
+//        premium.printInfo();
+//    }
+//}
 
 //public class Main {
 //
