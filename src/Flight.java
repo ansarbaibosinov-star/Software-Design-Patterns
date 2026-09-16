@@ -21,6 +21,7 @@ public class Flight {
         return oryndar;
     }
 
+
     public void printInfo() {
         System.out.println("Flight: " + flightNumber + ", Destination: " + destination + ", Capacity: " + oryndar);
     }

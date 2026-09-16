@@ -21,4 +21,5 @@ public class FlightRoute {
         System.out.println("Route "+"Departure: "+departure+" -> "+ " Destination: "+destination);
     }
 
+
 }

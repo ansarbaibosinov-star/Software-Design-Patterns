@@ -42,6 +42,7 @@ public class Booking {
         System.out.println("Priority boarding: " + priorityBoarding);
         System.out.println("Seat: " + seatNumber);
 
+
         if (route != null) {
             route.printInfo();
         }
