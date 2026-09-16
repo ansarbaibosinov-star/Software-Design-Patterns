@@ -3,7 +3,8 @@ public class BookingPresets {
     public static Booking basic(
             String bookingId,
             Passenger passenger,
-            Flight flight
+            Flight flight,
+            FlightRoute route
     ) {
 
         return new Booking.Builder(
@@ -12,8 +13,11 @@ public class BookingPresets {
                 flight,
                 "Economy"
         )
-                .baggage(30)
+                .baggage(20)
+                .route(route)
                 .build();
+
+
     }
 
 
