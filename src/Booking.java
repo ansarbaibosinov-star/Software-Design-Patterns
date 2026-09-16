@@ -12,7 +12,10 @@ public class Booking {
     private final boolean priorityBoarding;
     private final FlightRoute route;
 
+
     private Booking(Builder builder) {
+
+
 
         this.bookingId = builder.bookingId;
         this.passenger = builder.passenger;
@@ -27,12 +30,15 @@ public class Booking {
         this.route = builder.route;
     }
 
+
     public String getBookingId() {
         return bookingId;
     }
 
     public Passenger getPassenger() {
         return passenger;
+
+
     }
 
     public Flight getFlight() {
@@ -66,6 +72,7 @@ public class Booking {
     public FlightRoute getRoute() {
         return route;
     }
+
 
     public void printInfo() {
 
@@ -113,6 +120,8 @@ public class Booking {
         }
 
 
+
+
         public Builder seat(String seatNumber) {
             this.seatNumber = seatNumber;
             return this;
@@ -149,38 +158,74 @@ public class Booking {
         }
 
 
+
+
+
+
         public Booking build() {
+
+            validate();
+
             return new Booking(this);
+        }
+
+
+        private void validate() {
+
+            if (bookingId == null || bookingId.isBlank()) {
+                throw new IllegalArgumentException(
+                        "Booking ID cannot be empty"
+                );
+            }
+
+            if (passenger == null) {
+                throw new IllegalArgumentException(
+                        "Passenger cannot be null"
+                );
+            }
+
+            if (flight == null) {
+                throw new IllegalArgumentException(
+                        "Flight cannot be null"
+                );
+            }
+
+            if (seatClass == null || seatClass.isBlank()) {
+                throw new IllegalArgumentException(
+                        "Seat class cannot be empty"
+                );
+            }
+
+            if (baggageWeight < 0) {
+                throw new IllegalArgumentException(
+                        "Baggage weight cannot be negative"
+                );
+            }
+
+            if (seatNumber == null || seatNumber.isBlank()) {
+                throw new IllegalArgumentException(
+                        "Seat number cannot be empty"
+                );
+            }
+
+            if (priorityBoarding &&
+                    !seatClass.equals("Business") &&
+                    !seatClass.equals("First")) {
+
+                throw new IllegalArgumentException(
+                        "Priority boarding is available only for Business or First Class"
+                );
+            }
+
+            if (baggageWeight > 20 &&
+                    !seatClass.equals("Business") &&
+                    !seatClass.equals("First")) {
+
+                throw new IllegalArgumentException(
+                        "Baggage over 20 kg requires Business or First Class"
+                );
+            }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
