@@ -13,7 +13,7 @@ public class Main {
 
 
         Booking booking =
-                BookingPresets.basic(
+                BookingPresets.business(
                         "B001",
                         passenger,
                         flight,
