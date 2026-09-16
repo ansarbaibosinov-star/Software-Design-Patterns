@@ -1,3 +1,5 @@
+
+
 public class Flight {
     String flightNumber;
     String destination;

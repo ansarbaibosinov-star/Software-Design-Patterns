@@ -1,3 +1,4 @@
+
 public class Booking {
     private String bookingId;
     private Passenger passenger;

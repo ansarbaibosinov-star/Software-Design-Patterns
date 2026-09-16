@@ -1,3 +1,4 @@
+
 public class FlightRoute {
     private String departure;
     private String destination;
