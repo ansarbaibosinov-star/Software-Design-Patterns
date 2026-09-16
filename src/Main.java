@@ -12,23 +12,75 @@ public class Main {
                 new FlightRoute("Astana", "Almaty");
 
 
-        Booking booking = new Booking.Builder(
-                "B001",
-                passenger,
-                flight,
-                "Economy"
-        )
-                .baggage(20)
-                .withMeal()
-                .seat("12A")
-                .route(route)
-                .build();
+        Booking basic =
+                BookingPresets.basic(
+                        "B001",
+                        passenger,
+                        flight
+                );
 
 
-        booking.printInfo();
+        Booking business =
+                BookingPresets.business(
+                        "B002",
+                        passenger,
+                        flight,
+                        route
+                );
+
+
+        Booking premium =
+                BookingPresets.premium(
+                        "B003",
+                        passenger,
+                        flight,
+                        route
+                );
+
+
+        basic.printInfo();
+
+        System.out.println();
+
+        business.printInfo();
+
+        System.out.println();
+
+        premium.printInfo();
     }
 }
 
+//public class Main {
+//
+//    public static void main(String[] args) {
+//
+//        Passenger passenger =
+//                new Passenger("Arman", "K123");
+//
+//        Flight flight =
+//                new Flight("KC101", "Almaty", 200);
+//
+//        FlightRoute route =
+//                new FlightRoute("Astana", "Almaty");
+//
+//
+//        Booking booking = new Booking.Builder(
+//                "B001",
+//                passenger,
+//                flight,
+//                "Economy"
+//        )
+//                .baggage(20)
+//                .withMeal()
+//                .seat("12A")
+//                .route(route)
+//                .build();
+//
+//
+//        booking.printInfo();
+//    }
+//}
+//
 
 
 
