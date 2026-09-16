@@ -13,9 +13,9 @@ public class Passenger {
         return name;
 
 
-
-
-
+    }
+    public String getPassportNumber() {
+        return passportNumber;
     }
 
 
